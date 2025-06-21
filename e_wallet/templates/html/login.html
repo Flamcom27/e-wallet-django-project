@@ -1,0 +1,11 @@
+{% extends "registration.html" %}
+
+{% block label %}
+    Log In
+{% endblock label %}
+
+{% block action %}
+    {% url 'login' %}
+{% endblock action %}
+
+{% block submit_value %}Authorize{% endblock submit_value %}

@@ -1,0 +1,42 @@
+{% extends "nav.html" %}
+
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{%  static 'css/auth_form.css' %}" type="text/css">
+{% endblock styles %}
+
+{% block title %}
+    Registration
+{% endblock title %}
+{% block scripts %}
+<script>
+    alert("This is a pet project. Do not share your real credentials.")
+</script>
+{% endblock scripts %}
+{% block content %}
+    <main class="white-text">
+        <form method="POST" action="
+        {% block action %}
+            {% url 'registration' %}
+        {% endblock action %}
+        ">
+            <div id="label">
+                {% block label %}
+                    Sign Up
+                {% endblock label %}
+            </div>
+            {% csrf_token %}
+            {% for field in user_form %}
+                <div class="field">
+                    <h3>{{field.label_tag}}</h3>
+                    <div>{{ field }} </div>
+                    {% for error in field.errors %}
+                        <div class="error-message">{{error}}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <input type="submit" value="{% block submit_value %}Register{% endblock submit_value %}">
+        </form>
+
+    </main>
+{% endblock content %}

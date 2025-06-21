@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{%  static 'css/navbar.css' %}" type="text/css">
+     <link rel="stylesheet" href="{%  static 'css/common.css' %}" type="text/css">
+    {% block styles %}
+    {% endblock styles %}
+    {% block scripts %}
+    {% endblock scripts %}
+    <title>
+        {% block title %}
+            Home
+        {% endblock title %}
+    </title>
+</head>
+<body>
+    <nav id="navbar" class="white-text">
+        <section class="nav-options">
+            <a class="nav-option logo" href="{% url 'home' %}"> E-Wallet </a>
+            <a class="nav-option" href="/"> profile </a>
+            <a class="nav-option"> friends </a>
+            <a class="nav-option"> wallet </a>
+            <a class="nav-option"> messages </a>
+        </section>
+        <section class="auth-options">
+            <a class="nav-option" href="{% url 'login' %}"> login </a>
+            <span style="color: white; font-size: 20px;"> | </span>
+            <a class="nav-option" href="{% url 'registration' %}"> sign up </a>
+        </section>
+    </nav>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
