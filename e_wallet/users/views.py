@@ -6,6 +6,7 @@ from django.views import View
 from django.utils.decorators import method_decorator
 
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
+from .models import User
 
 
 class IndexView(View):
@@ -44,8 +45,12 @@ class LoginView(View):
 
 @method_decorator(login_required, name='get')
 class LogoutView(View):
-    
     def get(self, request: HttpRequest):
-        print(request.user)
         logout(request)
         return redirect("home")
+
+
+class SearchView(View):
+    def get(self, request: HttpRequest):
+        users = User.objects.filter(username__icontains=request.GET["username"])
+        return render(request, "search.html", {"users": users})

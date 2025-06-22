@@ -1,0 +1,13 @@
+{% extends "nav.html" %}
+
+{% block title %}
+    Search
+{% endblock title %}
+
+{% block content %}
+    <ul>
+        {% for user in users %}
+            <li>{{ user.username }}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

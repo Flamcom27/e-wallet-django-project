@@ -26,11 +26,15 @@
                 <a class="nav-option"> friends </a>
                 <a class="nav-option"> wallet </a>
                 <a class="nav-option"> messages </a>
+                <form method="get" action="{% url 'search' %}">
+                    <input type="search" name="username">
+                    <input type="submit">
+                </form>
             {% endif %}
         </section>
         <section class="auth-options">
             {% if user.is_authenticated %}
-                <a class="nav-option" href=""> ${{user.balance}} </a>
+                <a class="nav-option" href=""> $ {{user.balance}} </a>
                 <span style="color: white; font-size: 20px;"> | </span>
                 <a class="nav-option" href="{% url 'logout' %}"> log out </a>
             {% else %}
