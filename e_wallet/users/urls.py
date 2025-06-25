@@ -1,7 +1,10 @@
 from django.contrib import admin
 from django.urls import path
 
-from .views import IndexView, RegistrationView, LoginView, LogoutView, SearchView
+from .views import (
+    IndexView, RegistrationView, LoginView,
+    LogoutView, SearchView
+    )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
