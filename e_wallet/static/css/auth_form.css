@@ -8,49 +8,26 @@ main{
     opacity: 80%;
 
 }
-form{
+#auth-form{
     display: grid;
     align-content: space-between;
     text-align: center;
     width: 100%;
     height: 100%;
 }
-input{
+.form-option{
     margin-top: 3%;
     margin-bottom: 1%;
-}
-
-input[type=submit]{
-    /* all: inherit; */
-    width: 25%;
-    margin: auto;
-    margin-bottom: 3%;
-    margin-top: 3%;
-    padding: 3%;
-    border-radius: 40%;
-    font: inherit;
-    color: inherit;
-    font-weight: inherit;
-    border: none;
-    background: inherit;
-    border: 2px solid rgb(182, 255, 228);
-    transition: all 1s;
-}
-input[type=submit]:hover{
-    text-shadow: -3px 1px 10px rgb(182, 255, 228);
-    box-shadow: 0px 0px 15px 10px rgba(134, 255, 234, 0.2);
 }
 h3{
     margin-top: 0;
     margin-bottom: 0;
 }
-
 .error-message{
     text-shadow: -3px 1px 10px rgb(255, 166, 103);
     color: rgb(255, 229, 208);
     /* font-size: 40px; */
 }
-
 #label {
     margin-top: 3%;
     font-size: 40px;

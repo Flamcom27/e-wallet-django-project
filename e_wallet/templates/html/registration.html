@@ -19,7 +19,7 @@
         {% block action %}
             {% url 'registration' %}
         {% endblock action %}
-        ">
+        " id="auth-form">
             <div id="label">
                 {% block label %}
                     Sign Up
@@ -35,7 +35,7 @@
                     {% endfor %}
                 </div>
             {% endfor %}
-            <input type="submit" value="{% block submit_value %}Register{% endblock submit_value %}">
+            <input class="form-option" type="submit" value="{% block submit_value %}Register{% endblock submit_value %}">
         </form>
 
     </main>

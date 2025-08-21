@@ -8,6 +8,8 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100vh;
+    font-family: sans-serif;
+    color: #003e18;
 }
 
 a {
@@ -30,6 +32,26 @@ a {
 .white-text{
     color: rgb(231, 255, 255);
     text-shadow: 0 0 2px #fff;
-    font-family: sans-serif;
     font-weight: bolder;
+}
+
+/* submit button */
+input[type=submit]{
+    width: 25%;
+    margin: auto;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    padding: 3%;
+    border-radius: 40%;
+    font: inherit;
+    color: inherit;
+    font-weight: inherit;
+    border: none;
+    background: inherit;
+    border: 2px solid rgb(182, 255, 228);
+    transition: all 1s;
+}
+input[type=submit]:hover{
+    text-shadow: -3px 1px 10px rgb(182, 255, 228);
+    box-shadow: 0px 0px 15px 10px rgba(134, 255, 234, 0.2);
 }

@@ -1,0 +1,17 @@
+{% extends "nav.html" %}
+<!-- [x]TODO make profile.html -->
+{% block label %}
+    Profile
+{% endblock label %}
+<!-- [ ]TODO implement sending money button-->
+
+{% block content %}
+    <main>
+        <img src="{{data.icon.url}}" alt="profile_image" width="200">
+        <br>
+        {{data.icon}}<br>
+        {{data.username}} <br>
+        {{data.first_name}} <br>
+        {{data.last_name}} <br>
+    </main>
+{% endblock content %}

@@ -1,8 +1,8 @@
 from functools import partial
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login, logout
 from django.http.request import HttpRequest
 from django.views import View
 from django.utils.decorators import method_decorator
@@ -13,6 +13,7 @@ from .models import User
 
 registration_page = partial(render, template_name="registration.html")
 login_page = partial(render, template_name="login.html")
+# profile_page = partial(render, template_name="profile.html")
 
 
 class IndexView(View):
@@ -23,7 +24,7 @@ class IndexView(View):
 class RegistrationView(View):
     def get(self, request: HttpRequest):
         return registration_page(
-            request, {"user_form": CustomUserCreationForm()}
+            request, context={"user_form": CustomUserCreationForm()}
             )
 
     def post(self, request: HttpRequest):
@@ -33,12 +34,14 @@ class RegistrationView(View):
             login(request, user_form.save())
             return redirect("home")
 
-        return registration_page(request, {"user_form": user_form})
+        return registration_page(request, context={"user_form": user_form})
 
 
 class LoginView(View):
     def get(self, request: HttpRequest):
-        return login_page(request, {"user_form": CustomAuthenticationForm()})
+        return login_page(request, context={
+            "user_form": CustomAuthenticationForm()
+            })
 
     def post(self, request: HttpRequest):
         user_form = CustomAuthenticationForm(request, data=request.POST)
@@ -47,11 +50,11 @@ class LoginView(View):
             login(request, user_form.get_user())
             return redirect("home")
 
-        error_message = "That user does not exists or wrong password"
+        error_message = "That user does not exist or wrong password"
         user_form.add_error(
             field="username", error=error_message
             )
-        return login_page(request, {"user_form": user_form})
+        return login_page(request, context={"user_form": user_form})
 
 
 @method_decorator(login_required, name='get')
@@ -64,6 +67,17 @@ class LogoutView(View):
 class SearchView(View):
     def get(self, request: HttpRequest):
         users = User.objects.filter(
-            username__icontains=request.GET["username"]
+            username__icontains=request.GET.get("username", "")
             )
         return render(request, "search.html", {"users": users})
+
+
+# [x]TODO make ProfileView
+class ProfileView(View):
+    def get(self, request: HttpRequest, pk: int | None = None):
+        user = request.user
+        if pk:
+            user = get_object_or_404(User, pk=pk)
+        elif not user.is_authenticated:
+            redirect("home")
+        return render(request, "profile.html", {"data":user})
