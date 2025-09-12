@@ -28,8 +28,7 @@ class RegistrationView(View):
             )
 
     def post(self, request: HttpRequest):
-        user_form = CustomUserCreationForm(data=request.POST)
-
+        user_form = CustomUserCreationForm(request.POST, request.FILES)
         if user_form.is_valid():
             login(request, user_form.save())
             return redirect("home")

@@ -6,7 +6,7 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     friends = models.ManyToManyField("self", blank=True, default=None)
     balance = models.DecimalField(default=0, max_digits=10, decimal_places=2)
-    icon = models.ImageField(upload_to="images/", default="images/default_user_image.png")
+    icon = models.ImageField(upload_to="images/", blank=True)
 
     def __str__(self):
         return self.username
