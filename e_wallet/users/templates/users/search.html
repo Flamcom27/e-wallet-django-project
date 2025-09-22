@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block styles %}
-    <link rel="stylesheet" href="{%  static 'css/search.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%  static 'users/css/search.css' %}" type="text/css">
 {% endblock styles %}
 
 {% block title %}
@@ -20,7 +20,9 @@
             </a>
             <div class="buttons">
                 <input type="submit" value="send money">
-                <input type="submit" value="send message">    
+                <a>
+                    <input type="submit" value="send message"> 
+                </a>
             </div>
         </div>
     {% endfor %}

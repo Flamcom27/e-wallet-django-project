@@ -7,11 +7,11 @@
 
 {% block content %}
     <main>
-        <img src="{{data.icon.url}}" alt="profile_image" width="200">
+        <img src="{{user.icon.url}}" alt="profile_image" width="200">
         <br>
-        {{data.icon}}<br>
-        {{data.username}} <br>
-        {{data.first_name}} <br>
-        {{data.last_name}} <br>
+        {{user.icon}}<br>
+        {{user.username}} <br>
+        {{user.first_name}} <br>
+        {{user.last_name}} <br>
     </main>
 {% endblock content %}

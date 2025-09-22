@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 
+    # Custom apps
     'users',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,9 @@ ROOT_URLCONF = 'e_wallet.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates/html/'],
+        'DIRS': [
+            BASE_DIR / 'templates/',
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

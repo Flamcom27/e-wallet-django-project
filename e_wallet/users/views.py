@@ -11,8 +11,8 @@ from .forms import CustomUserCreationForm, CustomAuthenticationForm
 from .models import User
 
 
-registration_page = partial(render, template_name="registration.html")
-login_page = partial(render, template_name="login.html")
+registration_page = partial(render, template_name="users/registration.html")
+login_page = partial(render, template_name="users/login.html")
 # profile_page = partial(render, template_name="profile.html")
 
 
@@ -30,8 +30,9 @@ class RegistrationView(View):
     def post(self, request: HttpRequest):
         user_form = CustomUserCreationForm(request.POST, request.FILES)
         if user_form.is_valid():
-            login(request, user_form.save())
-            return redirect("home")
+            user = user_form.save()
+            login(request, user)
+            return redirect("profile", pk=user.id)
 
         return registration_page(request, context={"user_form": user_form})
 
@@ -46,8 +47,9 @@ class LoginView(View):
         user_form = CustomAuthenticationForm(request, data=request.POST)
 
         if user_form.is_valid():
-            login(request, user_form.get_user())
-            return redirect("home")
+            user = user_form.get_user()
+            login(request, user)
+            return redirect("profile", pk=user.id)
 
         error_message = "That user does not exist or wrong password"
         user_form.add_error(
@@ -68,10 +70,9 @@ class SearchView(View):
         users = User.objects.filter(
             username__icontains=request.GET.get("username", "")
             )
-        return render(request, "search.html", {"users": users})
+        return render(request, "users/search.html", {"users": users})
 
 
-# [x]TODO make ProfileView
 class ProfileView(View):
     def get(self, request: HttpRequest, pk: int | None = None):
         user = request.user
@@ -79,4 +80,4 @@ class ProfileView(View):
             user = get_object_or_404(User, pk=pk)
         elif not user.is_authenticated:
             redirect("home")
-        return render(request, "profile.html", {"data":user})
+        return render(request, "users/profile.html", {"user":user})
