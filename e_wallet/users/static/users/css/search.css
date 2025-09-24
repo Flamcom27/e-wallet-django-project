@@ -16,23 +16,6 @@
     align-items: center;
     border-bottom: 1px solid black;
 }
-
-main input[type=submit]{
-    background-color: rgb(245, 255, 245);
-    /* align-content:end; */
-    /* height: 0.5rem;
-    width: 10rem; */
-    /* padding: 1rem; */
-    padding: 1rem;
-    width:12rem;
-    margin: 0px;
-    margin-right: 10px;
-    margin-left: 10px;
-    text-align: center;
-}
-main input[value="send money"]{
-    background-color: rgb(243, 255, 219);
-}
 .buttons{
     display: flex;
     justify-content:end;

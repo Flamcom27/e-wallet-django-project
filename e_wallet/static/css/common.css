@@ -1,6 +1,7 @@
 /* variables */
 :root{
     --main-gradient: linear-gradient(30deg,rgba(42, 123, 155, 1) 0%, rgb(82, 179, 123) 60%);
+    --radius: 40px;
 }
 
 /* tags */
@@ -10,6 +11,10 @@ html, body {
     height: 100vh;
     font-family: sans-serif;
     color: #003e18;
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+
 }
 
 a {
@@ -42,7 +47,7 @@ input[type=submit]{
     margin-bottom: 3%;
     margin-top: 3%;
     padding: 3%;
-    border-radius: 40%;
+    border-radius: var(--radius);
     font: inherit;
     color: inherit;
     font-weight: inherit;
@@ -54,4 +59,20 @@ input[type=submit]{
 input[type=submit]:hover{
     text-shadow: -3px 1px 10px rgb(182, 255, 228);
     box-shadow: 0px 0px 15px 10px rgba(134, 255, 234, 0.2);
+}
+
+input[value="send message"], input[value="send money"]{
+    background-color: rgb(245, 255, 245);
+    padding: 1rem;
+    font-weight: 500;
+    font-size: 20px;
+    width:12rem;
+    margin: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+}
+input[value="send money"]{
+    background-color: rgb(43, 169, 121);
+    color: #fff;
 }

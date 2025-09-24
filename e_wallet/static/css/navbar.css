@@ -9,7 +9,8 @@
     width: 100%;
     background: var(--main-gradient);
     margin-left: 0px;
-    margin-top: 0px
+    margin-top: 0px;
+    flex-shrink: 0;
 
 }
 

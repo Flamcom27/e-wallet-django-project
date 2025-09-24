@@ -6,5 +6,5 @@ from . import views
 
 
 urlpatterns = [
-    path('dialog/<int:pk>', admin.site.urls),
+    path('<int:pk>', views.ChatView.as_view(), name="chat"),
 ]

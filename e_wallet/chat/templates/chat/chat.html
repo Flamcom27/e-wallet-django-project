@@ -1,0 +1,70 @@
+{% extends "nav.html" %}
+
+<!-- {% load static %} -->
+{% block styles %}
+    <link rel="stylesheet" href="{%  static 'chat/css/chat.css' %}" type="text/css">
+{% endblock styles %}
+
+{% block title %}
+    Chat
+{% endblock title %}
+
+{% block content %}
+    <!-- <div>
+        <img src="{{sender.icon.url}}" alt="profile_image" width="200">
+        <br>
+        {{sender.icon}}<br>
+        {{sender.username}} <br>
+        {{sender.first_name}} <br>
+        {{sender.last_name}} <br>
+    </div>
+        <div>
+        <img src="{{reciever.icon.url}}" alt="profile_image" width="200">
+        <br>
+        {{reciever.icon}}<br>
+        {{reciever.username}} <br>
+        {{reciever.first_name}} <br>
+        {{reciever.last_name}} <br>
+    </div> -->
+
+    <div id="dialog-window">
+        <div id="reciever-title">
+            <a href="{% url 'profile' pk=reciever.pk %}" class="profile-link">
+                <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image">
+                <h2 class="profile-username">
+                    {{reciever.username}}
+                </h2>
+            </a>
+            <input type="submit" value="send money">
+        </div>
+        <div id="messages">
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Minima a quisquam tenetur quasi architecto provident <br>
+                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
+                ducimus, accusantium, quae sint libero hic nisi iste?<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Minima a quisquam tenetur quasi architecto provident <br>
+                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
+                ducimus, accusantium, quae sint libero hic nisi iste?<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Minima a quisquam tenetur quasi architecto provident <br>
+                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
+                ducimus, accusantium, quae sint libero hic nisi iste?<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Minima a quisquam tenetur quasi architecto provident <br>
+                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
+                ducimus, accusantium, quae sint libero hic nisi iste?<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Minima a quisquam tenetur quasi architecto provident <br>
+                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
+                ducimus, accusantium, quae sint libero hic nisi iste?<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Minima a quisquam tenetur quasi architecto provident <br>
+                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
+                ducimus, accusantium, quae sint libero hic nisi iste?<br>
+            </div>
+        </div>
+        <div id="message-form">c</div>
+    </div>
+{% endblock content %}

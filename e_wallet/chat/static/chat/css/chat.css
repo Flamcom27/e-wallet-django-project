@@ -1,0 +1,52 @@
+/* @import url("../../../../static/css/common.css"); */
+
+
+#dialog-window{
+    display: grid;
+    width: 60%;
+    background: var(--main-gradient);
+    margin: 5px auto;
+    grid-template-columns: 95%;
+    grid-template-rows: 80px 70% auto ;
+    border-radius: var(--radius);
+    justify-content: center;
+    row-gap: 10px;
+    padding: 20px;
+    height: calc(100% - 80px);
+}
+#reciever-title{
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius);
+    display: grid;
+    grid-template-columns: 10% 50% 25%;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image{
+    width: auto;
+    height: 90%;
+    border-radius: 50%;
+}
+
+.profile-link{
+    display: contents;
+}
+
+#reciever-title > input[value="send money"]{
+    justify-self: end;
+}
+
+#messages{
+    background-color: rgba(163, 255, 171, 0.378);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+}
+
+#messages>div{
+    overflow-y: scroll;
+    width: 92%;
+    height: 90%;
+    margin: auto;
+}
