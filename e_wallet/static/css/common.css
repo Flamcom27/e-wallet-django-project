@@ -8,13 +8,12 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     font-family: sans-serif;
     color: #003e18;
     /* overflow: hidden; */
     display: flex;
     flex-direction: column;
-
 }
 
 a {

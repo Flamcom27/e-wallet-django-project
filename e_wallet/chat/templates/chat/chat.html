@@ -26,45 +26,104 @@
         {{reciever.first_name}} <br>
         {{reciever.last_name}} <br>
     </div> -->
-
     <div id="dialog-window">
-        <div id="reciever-title">
-            <a href="{% url 'profile' pk=reciever.pk %}" class="profile-link">
-                <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image">
-                <h2 class="profile-username">
-                    {{reciever.username}}
-                </h2>
-            </a>
-            <input type="submit" value="send money">
-        </div>
-        <div id="messages">
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                Minima a quisquam tenetur quasi architecto provident <br>
-                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
-                ducimus, accusantium, quae sint libero hic nisi iste?<br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                Minima a quisquam tenetur quasi architecto provident <br>
-                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
-                ducimus, accusantium, quae sint libero hic nisi iste?<br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                Minima a quisquam tenetur quasi architecto provident <br>
-                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
-                ducimus, accusantium, quae sint libero hic nisi iste?<br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                Minima a quisquam tenetur quasi architecto provident <br>
-                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
-                ducimus, accusantium, quae sint libero hic nisi iste?<br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                Minima a quisquam tenetur quasi architecto provident <br>
-                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
-                ducimus, accusantium, quae sint libero hic nisi iste?<br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                Minima a quisquam tenetur quasi architecto provident <br>
-                debitis reiciendis placeat delectus incidunt, atque deserunt <br>
-                ducimus, accusantium, quae sint libero hic nisi iste?<br>
+        <div>
+            <div id="reciever-title">
+                <a href="{% url 'profile' pk=reciever.pk %}" class="profile-link">
+                    <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image">
+                    <h2 class="profile-username">
+                        {{reciever.username}}
+                    </h2>
+                </a>
+                <div></div>
+
+                <input type="submit" value="send money">
+            </div>
+            <div id="messages">
+                <div>
+                    <div class="right">
+                        <div class="message">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Minima a quisquam tenetur quasi architecto provident
+                                debitis reiciendis placeat delectus incidunt, atque deserunt
+                                ducimus, accusantium, quae sint libero hic nisi iste?
+                            </p>      
+                        </div>
+                        <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image message-image">
+
+                    </div>
+                    <div class="left">
+                        <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image message-image">
+                        <div class="message">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Minima a quisquam tenetur quasi architecto provident
+                                debitis reiciendis placeat delectus incidunt, atque deserunt
+                                ducimus, accusantium, quae sint libero hic nisi iste?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="left">
+                        <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image message-image">
+                        <div class="message">
+                            <p>
+                                Minima a quisquam tenetur quasi architecto provident 
+                                debitis reiciendis placeat delectus incidunt, atque deserunt
+                                ducimus, accusantium, quae sint libero hic nisi iste?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Minima a quisquam tenetur quasi architecto provident
+                                debitis reiciendis placeat delectus incidunt, atque deserunt
+                                ducimus, accusantium, quae sint libero hic nisi iste?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Minima a quisquam tenetur quasi architecto provident 
+                                debitis reiciendis placeat delectus incidunt, atque deserunt 
+                                ducimus, accusantium, quae sint libero hic nisi iste?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Minima a quisquam tenetur quasi architecto provident 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="message">
+                            <p>
+                                debitis reiciendis placeat delectus incidunt, atque deserunt
+                                ducimus, accusantium, quae sint libero hic nisi iste?
+                            </p>
+                        </div>
+                        <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image message-image">
+
+                    </div>
+                    <div class="right">
+                    <div class="message">
+                            <p>
+                                debitis reiciendis placeat 
+                            </p>
+                        </div>
+                        <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image message-image">
+                    </div>
+
+                </div>
+            </div>
+            <div id="message-form">
+                <form action="">
+                    <textarea name="" id=""></textarea>
+                    <input type="submit" value="send" name="message-text">
+                </form>
             </div>
         </div>
-        <div id="message-form">c</div>
     </div>
+    
+    <script>
+        function scrollToBottom() {
+            let relative = document
+                .getElementById("messages")
+                .getElementsByTagName("div")[0];
+            relative.scrollTop = relative.scrollHeight;
+        };
+        scrollToBottom()
+    </script>
+
 {% endblock content %}

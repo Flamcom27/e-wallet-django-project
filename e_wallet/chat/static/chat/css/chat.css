@@ -1,36 +1,44 @@
-/* @import url("../../../../static/css/common.css"); */
-
 
 #dialog-window{
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: calc(100% - 80px);
+}
+#dialog-window>div{
     display: grid;
     width: 60%;
     background: var(--main-gradient);
-    margin: 5px auto;
     grid-template-columns: 95%;
-    grid-template-rows: 80px 70% auto ;
+    grid-template-rows: 80px auto 80px ;
     border-radius: var(--radius);
     justify-content: center;
     row-gap: 10px;
     padding: 20px;
-    height: calc(100% - 80px);
 }
 #reciever-title{
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: var(--radius);
     display: grid;
-    grid-template-columns: 10% 50% 25%;
+    grid-template-columns: 20% 40% 25%;
     justify-content: center;
     align-items: center;
 }
 
 .profile-image{
-    width: auto;
-    height: 90%;
+    width: 4em;
+    height: 4em;
     border-radius: 50%;
+    margin: 0px 10px;
+}
+.profile-username{
+    display: inline-block;
 }
 
 .profile-link{
-    display: contents;
+    display: flex;
+    align-items: center;
 }
 
 #reciever-title > input[value="send money"]{
@@ -42,11 +50,84 @@
     border-radius: var(--radius);
     display: flex;
     align-items: center;
+    height: 60vh;
 }
 
 #messages>div{
+    flex-direction: column-reverse;
     overflow-y: scroll;
     width: 92%;
     height: 90%;
-    margin: auto;
+    margin: 0px auto;
+}
+#messages>div>div{
+    margin: 10px auto;
+}
+
+.message{
+    display: inline-block;
+    width: 60%;
+    min-height: 100%;
+    border-radius: var(--radius);
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+}
+
+.message>p{
+    width: 90%;
+    height: 90%;
+    margin: 0px auto;
+}
+
+.message-image{
+    background-color: white;
+    width: 4em;
+    height: 4em;
+    align-self: flex-end;
+}
+
+.right, .left{
+    display: flex;
+}
+.left>.message{
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-left: 0.5em;
+}
+.right{
+    justify-content: flex-end;
+}
+.right>.message{
+    background-color: rgba(234, 255, 231, 0.9);
+    margin-right: 0.5em;
+}
+#message-form>form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+#message-form>form>input[type="submit"]{
+    margin: 0px;
+    padding: auto 0px;
+    width: auto;
+    color: white;
+    padding: 1em 2em;
+}
+#message-form>form>textarea{
+    resize: none;
+    width: 60%;
+    height: 4em;
+    margin-right: 5px;
+    padding: 0.2em 1em;
+    font-family: inherit;
+    border-radius: var(--radius);
+    border: 2px solid rgb(168, 255, 183);
+    transition: padding 0.3s;
+    text-overflow: ellipsis;
+    outline: none;
+}
+
+#message-form>form>textarea:focus{
+    padding: 0.4em 1.5em;
+
 }

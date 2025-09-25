@@ -16,6 +16,5 @@ class ChatView(View):
         sender = request.user
 
         return render(request, "chat/chat.html", context={
-            "reciever": reciever,
-            "sender": sender
+            "reciever": reciever
         })

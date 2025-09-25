@@ -12,18 +12,20 @@
 {% block content %}
 <main id="search-results">
     <h1>Results:</h1>
-    {% for user in users %}
+    {% for found_user in users %}
         <div class="search-result">
-            <a href="{% url 'profile' pk=user.pk %}">
-                <img src="{{user.icon.url}}" alt="profile_image" width="100" height="100" class="round-profile">
-                <h2>{{ user.username }}</h2>
+            <a href="{% url 'profile' pk=found_user.pk %}">
+                <img src="{{found_user.icon.url}}" alt="profile_image" width="100" height="100" class="round-profile">
+                <h2>{{ found_user.username }}</h2>
             </a>
-            <div class="buttons">
-                <input type="submit" value="send money">
-                <a href="{% url 'chat' pk=user.pk %}">
-                    <input type="submit" value="send message"> 
-                </a>
-            </div>
+            {% if found_user.pk != user.pk%}
+                <div class="buttons">
+                    <input type="submit" value="send money">
+                    <a href="{% url 'chat' pk=found_user.pk %}">
+                        <input type="submit" value="send message"> 
+                    </a>
+                </div>
+            {% endif %}
         </div>
     {% endfor %}
 </main>

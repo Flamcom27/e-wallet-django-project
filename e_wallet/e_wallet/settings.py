@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Installed apps
+    'channels',
     # Core 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -74,6 +76,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'e_wallet.wsgi.application'
+
+ASGI_APPLICATION = 'e_wallet.asgi.application'
 
 
 # Database
