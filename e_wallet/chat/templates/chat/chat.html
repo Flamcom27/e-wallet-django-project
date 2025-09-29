@@ -41,7 +41,7 @@
             </div>
             <div id="messages">
                 <div>
-                    <div class="right">
+                    <!-- <div class="right">
                         <div class="message">
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -103,27 +103,32 @@
                             </p>
                         </div>
                         <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image message-image">
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
             <div id="message-form">
-                <form action="">
-                    <textarea name="" id=""></textarea>
+                <form action="javascript:void(0);">
+                    <textarea name="message" id=""></textarea>
                     <input type="submit" value="send" name="message-text">
                 </form>
             </div>
         </div>
     </div>
-    
-    <script>
-        function scrollToBottom() {
-            let relative = document
-                .getElementById("messages")
-                .getElementsByTagName("div")[0];
-            relative.scrollTop = relative.scrollHeight;
-        };
-        scrollToBottom()
+    <script type="text/javascript">
+        const djangoContext = {
+            reciever: {
+                pk:'{{reciever.pk}}',
+                img: '{{reciever.icon.url}}',
+                side: 'left'
+            },
+            user:{
+                pk: '{{user.pk}}',
+                img: '{{user.icon.url}}',
+                side: 'right'
+            }  
+        }
     </script>
-
+    <script src="{% static 'chat/js/chat.js'%}"></script>
+    
 {% endblock content %}

@@ -6,5 +6,5 @@ from . import views
 
 
 urlpatterns = [
-    path('<int:pk>', views.ChatView.as_view(), name="chat"),
+    path('<int:pk>/', views.ChatView.as_view(), name="chat"),
 ]
