@@ -10,22 +10,6 @@
 {% endblock title %}
 
 {% block content %}
-    <!-- <div>
-        <img src="{{sender.icon.url}}" alt="profile_image" width="200">
-        <br>
-        {{sender.icon}}<br>
-        {{sender.username}} <br>
-        {{sender.first_name}} <br>
-        {{sender.last_name}} <br>
-    </div>
-        <div>
-        <img src="{{reciever.icon.url}}" alt="profile_image" width="200">
-        <br>
-        {{reciever.icon}}<br>
-        {{reciever.username}} <br>
-        {{reciever.first_name}} <br>
-        {{reciever.last_name}} <br>
-    </div> -->
     <div id="dialog-window">
         <div>
             <div id="reciever-title">
@@ -41,74 +25,11 @@
             </div>
             <div id="messages">
                 <div>
-                    <!-- <div class="right">
-                        <div class="message">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Minima a quisquam tenetur quasi architecto provident
-                                debitis reiciendis placeat delectus incidunt, atque deserunt
-                                ducimus, accusantium, quae sint libero hic nisi iste?
-                            </p>      
-                        </div>
-                        <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image message-image">
-
-                    </div>
-                    <div class="left">
-                        <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image message-image">
-                        <div class="message">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Minima a quisquam tenetur quasi architecto provident
-                                debitis reiciendis placeat delectus incidunt, atque deserunt
-                                ducimus, accusantium, quae sint libero hic nisi iste?
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-
-                        </div>
-                    </div>
-                    <div class="left">
-                        <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image message-image">
-                        <div class="message">
-                            <p>
-                                Minima a quisquam tenetur quasi architecto provident 
-                                debitis reiciendis placeat delectus incidunt, atque deserunt
-                                ducimus, accusantium, quae sint libero hic nisi iste?
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Minima a quisquam tenetur quasi architecto provident
-                                debitis reiciendis placeat delectus incidunt, atque deserunt
-                                ducimus, accusantium, quae sint libero hic nisi iste?
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Minima a quisquam tenetur quasi architecto provident 
-                                debitis reiciendis placeat delectus incidunt, atque deserunt 
-                                ducimus, accusantium, quae sint libero hic nisi iste?
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Minima a quisquam tenetur quasi architecto provident 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="message">
-                            <p>
-                                debitis reiciendis placeat delectus incidunt, atque deserunt
-                                ducimus, accusantium, quae sint libero hic nisi iste?
-                            </p>
-                        </div>
-                        <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image message-image">
-
-                    </div>
-                    <div class="right">
-                    <div class="message">
-                            <p>
-                                debitis reiciendis placeat 
-                            </p>
-                        </div>
-                        <img src="{{reciever.icon.url}}" alt="profile_image" class="profile-image message-image">
-                    </div> -->
-
+                    <!-- messages will be added here -->
                 </div>
             </div>
             <div id="message-form">
-                <form action="javascript:void(0);">
+                <form>
                     <textarea name="message" id=""></textarea>
                     <input type="submit" value="send" name="message-text">
                 </form>
@@ -119,16 +40,16 @@
         const djangoContext = {
             reciever: {
                 pk:'{{reciever.pk}}',
-                img: '{{reciever.icon.url}}',
+                iconUrl: '{{reciever.icon.url}}',
                 side: 'left'
             },
             user:{
                 pk: '{{user.pk}}',
-                img: '{{user.icon.url}}',
+                iconUrl: '{{user.icon.url}}',
                 side: 'right'
-            }  
+            },
+            chatId: '{{chat_id}}'
         }
     </script>
     <script src="{% static 'chat/js/chat.js'%}"></script>
-    
 {% endblock content %}

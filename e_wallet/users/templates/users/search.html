@@ -21,7 +21,7 @@
             {% if found_user.pk != user.pk%}
                 <div class="buttons">
                     <input type="submit" value="send money">
-                    <a href="{% url 'chat' pk=found_user.pk %}">
+                    <a href="{% url 'start_chat' pk=found_user.pk %}">
                         <input type="submit" value="send message"> 
                     </a>
                 </div>

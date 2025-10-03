@@ -1,5 +1,6 @@
 from functools import partial
 
+from django.views.decorators.cache import never_cache
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout
@@ -64,7 +65,7 @@ class LogoutView(View):
         logout(request)
         return redirect("home")
 
-
+@method_decorator(never_cache, name='get')
 class SearchView(View):
     def get(self, request: HttpRequest):
         users = User.objects.filter(

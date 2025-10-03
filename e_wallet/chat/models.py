@@ -14,7 +14,7 @@ class Chat(models.Model):
     class Meta:
         constraints = [
             CheckConstraint(
-                check=Q(participant1=F("participant2")),
+                check=~Q(participant1=F("participant2")),
                 name="Participants are the same person"
             )
         ]
